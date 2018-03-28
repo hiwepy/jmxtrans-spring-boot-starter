@@ -1,0 +1,41 @@
+{
+  "queries": [
+      {
+      "objectName": "cocktail:type=ShoppingCartController,name=ShoppingCartController",
+      "resultAlias": "",
+      "attributes": [
+        {
+          "name": "SalesRevenueInCentsCounter",
+          "resultAlias": "sales.revenueInCentsCounter"
+        }
+      ]
+    },
+    {
+      "objectName": "com.cocktail:type=CocktailService,name=cocktailService",
+      "resultAlias": "cocktail.controller",
+      "attributes": ["SearchedCocktailCount", "DisplayedCocktailCount", "SendCocktailRecipeCount"]
+    }
+  ],
+  "outputWriters": [
+  		{
+	      	"@class": "org.jmxtrans.embedded.output.ConsoleWriter"
+	    },
+        {
+	        "@class": "org.jmxtrans.embedded.output.Slf4jWriter",
+	        "settings": {
+	            "enabled": "${jmxtrans.writer.slf4j.enabled:true}"
+	        }
+    	},
+    	{
+	        "@class": "org.jmxtrans.embedded.output.influxdb.InfluxDbOutputWriter",
+	        "settings": {
+	            "enabled": "${jmxtrans.writer.influxdb.enabled:true}",
+	            "url": "${jmxtrans.writer.influxdb.url:http://121.43.110.87:8086}",
+	            "database": "${jmxtrans.writer.influxdb.database:Metrics_121.43.110.87}",
+	            "user": "${jmxtrans.writer.influxdb.user:admin}",
+	            "password": "${jmxtrans.writer.influxdb.password:admin}",
+	            "tags": "${jmxtrans.writer.influxdb.tags:host=#hostname#}"
+	        }
+    	}
+    ]
+}

@@ -1,4 +1,4 @@
-# jmxtrans-integration
+# jmxtrans-spring-boot-starter
 
 embedded-jmxtrans 整合  Spring、Servlet、InfluxDB
 

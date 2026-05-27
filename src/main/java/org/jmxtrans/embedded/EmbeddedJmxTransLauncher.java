@@ -1,6 +1,6 @@
 package org.jmxtrans.embedded;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 public class EmbeddedJmxTransLauncher {
 	 
